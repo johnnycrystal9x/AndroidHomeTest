@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/txtKeyword"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:maxLines="2"
+    android:gravity="center"
+    android:background="@drawable/drawer_bg_keyword"
+    android:layout_margin="5dp"
+    android:textColor="@android:color/white" />
