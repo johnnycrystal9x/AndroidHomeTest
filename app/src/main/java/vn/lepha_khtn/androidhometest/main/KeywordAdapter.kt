@@ -14,6 +14,7 @@ import vn.lepha_khtn.androidhometest.R
 import vn.lepha_khtn.androidhometest.utils.AppConstants
 import vn.lepha_khtn.androidhometest.utils.CommonUtils
 import vn.lepha_khtn.androidhometest.utils.FileUtils
+import java.util.*
 
 /**
  * Created by JB Pha Le
@@ -53,8 +54,13 @@ class KeywordAdapter(context: Context) : RecyclerView.Adapter<KeywordAdapter.Vie
         holder.txtKeyword?.text = keyword
 
         //Background color is random.
+        val colors = holder.itemView.context.resources.getIntArray(R.array.androidcolors)
+        val randomColor = colors[Random().nextInt(colors.size)]
+
         val drawable = holder.txtKeyword?.background as GradientDrawable
-        drawable.setColor(CommonUtils.getRandomColor())
+        drawable.setColor(randomColor)
+//        drawable.setColor(CommonUtils.getRandomColor())
+
         holder.txtKeyword.background = drawable
     }
 
