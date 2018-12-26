@@ -15,6 +15,7 @@ import vn.lepha_khtn.androidhometest.utils.AppConstants
 import vn.lepha_khtn.androidhometest.utils.CommonUtils
 import vn.lepha_khtn.androidhometest.utils.FileUtils
 import java.util.*
+import kotlin.collections.ArrayList
 
 /**
  * Created by JB Pha Le
@@ -37,19 +38,14 @@ class KeywordAdapter(context: Context) : RecyclerView.Adapter<KeywordAdapter.Vie
         var keyword = models[position].trim()
 
         //If the keyword is more than one word, then display in two lines.
-        val spaceTotal = keyword.filter { it == ' ' }.count()
-        if (spaceTotal > 0) {
-            val expectedSpaceIndex = spaceTotal / 2 + if (spaceTotal % 2 == 0) 0 else 1
-            var spaceIndex = 0
-            for ((index, char) in keyword.toCharArray().withIndex()) {
-                if (char == ' ') {
-                    spaceIndex++
-                    if (spaceIndex == expectedSpaceIndex) {
-                        keyword = StringBuilder(keyword).insert(index, "\n").toString()
-                        break
-                    }
-                }
+        val listIndex: MutableList<Int> = ArrayList()
+        for ((index, char) in keyword.withIndex()) {
+            if (char == ' ') {
+                listIndex.add(index)
             }
+        }
+        if (listIndex.size > 0) {
+            keyword = StringBuilder(keyword).insert(listIndex[(listIndex.size-1)/2], "\n").toString()
         }
         holder.txtKeyword?.text = keyword
 
