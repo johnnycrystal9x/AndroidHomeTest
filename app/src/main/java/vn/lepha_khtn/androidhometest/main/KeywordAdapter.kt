@@ -11,6 +11,7 @@ import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.item_keyword.view.*
 import vn.lepha_khtn.androidhometest.R
+
 import vn.lepha_khtn.androidhometest.utils.AppConstants
 import vn.lepha_khtn.androidhometest.utils.CommonUtils
 import vn.lepha_khtn.androidhometest.utils.FileUtils
